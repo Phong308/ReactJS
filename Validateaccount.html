@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Username Validation</title>
+    <script>
+        function is_valid_username(username) {
+            var pattern = /^[_a-z0-9]{6,}$/;
+            return pattern.test(username);
+        }
+
+        function validateUsername() {
+            var usernameInput = document.getElementById("username");
+            var resultDiv = document.getElementById("result");
+
+            var username = usernameInput.value.trim();
+
+            if (is_valid_username(username)) {
+                resultDiv.innerHTML = "Valid username!";
+                resultDiv.style.color = "green";
+            } else {
+                resultDiv.innerHTML = "Invalid username!";
+                resultDiv.style.color = "red";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Username Validation</h1>
+    <label for="username">Enter username:</label>
+    <input type="text" id="username" name="username" required>
+    <button onclick="validateUsername()">Check</button>
+    <div id="result"></div>
+</body>
+</html>
