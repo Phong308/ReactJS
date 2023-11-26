@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+</head>
+<body>
+    <script>
+        function isValidEmail(email) {
+            var emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$/;
+            return emailRegex.test(email);
+        }
+
+        // Kiểm thử mẫu email hợp lệ
+        var validEmails = ["a@gmail.com", "ab@yahoo.com", "abc@hotmail.com"];
+        displayResult("Valid Emails:", validEmails);
+
+        // Kiểm thử mẫu email không hợp lệ
+        var invalidEmails = ["@gmail.com", "ab@gmail.", "@#abc@gmail.com"];
+        displayResult("Invalid Emails:", invalidEmails);
+
+        function displayResult(message, emails) {
+            console.log(message);
+            emails.forEach(function(email) {
+                console.log(email + ": " + isValidEmail(email));
+                document.write(email + ": " + isValidEmail(email) + "<br>");
+            });
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>
